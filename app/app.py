@@ -8,14 +8,14 @@ from linebot.models import (MessageEvent, TextMessage, TextSendMessage,)
 app = Flask(__name__)
 
 # config file
-json_file = open('../config.json', 'r')
-json_data = json.load(json_file)
-access_token = json_data["access_token"]
-channel_secret = json_data["channel_secret"]
+# json_file = open('../config.json', 'r')
+# json_data = json.load(json_file)
+# access_token = json_data["access_token"]
+# channel_secret = json_data["channel_secret"]
 
-# linebot token
-line_bot_api = LineBotApi(access_token)
-handler = WebhookHandler(channel_secret)
+# # linebot token
+# line_bot_api = LineBotApi(access_token)
+# handler = WebhookHandler(channel_secret)
 
 # endpoint
 @app.route("/")
