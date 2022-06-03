@@ -1,6 +1,6 @@
 # Flask でつくる LINE Chatbot
 
-Flask で作成した LINE ChatBot のバックエンド API．LINE Developers のコンソールから作成した Messaging API からこのバックエンド API を叩くことで
+Flask で作成した LINE ChatBot のバックエンド API．LINE Developers のコンソールから作成した Messaging API からこのバックエンド API を叩くことでレスポンスを返す．
 
 ### 開発環境
 
