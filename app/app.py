@@ -7,13 +7,13 @@ from linebot.models import (MessageEvent, TextMessage, TextSendMessage,)
 # generate instance
 app = Flask(__name__)
 
-# config file
+# ローカルサーバを起動する場合は LINE Bot の Access Token と Secret は config.json に詰める
 # json_file = open('../config.json', 'r')
 # json_data = json.load(json_file)
 # access_token = json_data["access_token"]
 # channel_secret = json_data["channel_secret"]
 
-# # linebot token
+# linebot token
 # line_bot_api = LineBotApi(access_token)
 # handler = WebhookHandler(channel_secret)
 
@@ -22,7 +22,7 @@ app = Flask(__name__)
 def test():
         return "It Works!"
 
-# # endpoint from linebot
+# endpoint from linebot
 # @app.route("/callback", methods=['POST'])
 # def callback():
 #     # get X-Line-Signature header value
@@ -38,10 +38,8 @@ def test():
 #     except InvalidSignatureError:
 #         print("Invalid signature. Please check your channel access token/channel secret.")
 #         abort(400)
-
 #     return 'OK'
 
-# # 
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_message(event):
 #     line_bot_api.reply_message(
