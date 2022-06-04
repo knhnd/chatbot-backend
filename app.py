@@ -20,7 +20,7 @@ app = Flask(__name__)
 # endpoint
 @app.route("/")
 def test():
-        return "It Works!"
+        return "<p>It Works!</p>"
 
 # endpoint from linebot
 # @app.route("/callback", methods=['POST'])
