@@ -1,4 +1,3 @@
 Flask==1.1.2
-Jinja2==2.11.2
 gunicorn==20.1.0
 line-bot-sdk==2.2.1 
