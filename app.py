@@ -12,35 +12,45 @@ app = Flask(__name__)
 # json_data = json.load(json_file)
 # access_token = json_data["access_token"]
 # channel_secret = json_data["channel_secret"]
-# linebot token
 # line_bot_api = LineBotApi(access_token)
 # handler = WebhookHandler(channel_secret)
+
+# channel token on heroku
+line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 # endpoint
 @app.route("/")
 def test():
-        return "<p>It Works!</p>"
+        return "<h1>It Works!</h1>"
 
-# # endpoint from linebot
-# @app.route("/callback", methods=['POST'])
-# def callback():
-#     # get X-Line-Signature header value
-#     signature = request.headers['X-Line-Signature']
+# endpoint from linebot
+# 認証情報の検証
+@app.route("/callback", methods=['POST'])
+def callback():
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
 
-#     # get request body as text
-#     body = request.get_data(as_text=True)
-#     app.logger.info("Request body: " + body)
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
 
-#     # handle webhook body
-#     try:
-#         handler.handle(body, signature)
-#     except InvalidSignatureError:
-#         print("Invalid signature. Please check your channel access token/channel secret.")
-#         abort(400)
-#     return 'OK'
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        print("Invalid signature. Please check your channel access token/channel secret.")
+        abort(400)
 
-# @handler.add(MessageEvent, message=TextMessage)
-# def handle_message(event):
-#     line_bot_api.reply_message(
-#         event.reply_token,
-#         TextSendMessage(text=event.message.text))
+    return 'OK'
+
+
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text))
+
+
+if __name__ == "__main__":
+    app.run()
