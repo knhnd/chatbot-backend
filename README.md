@@ -4,13 +4,15 @@ Flask で作成した LINE ChatBot のバックエンド API．LINE Developers �
 
 ### 環境情報
 
-- Python : 3.8.2
+- Python : 3.10.2
 - Flask : 1.1.2
 - line-bot-sdk : 2.2.1
 
 ## デプロイ
 
 LINE Developer の公式ドキュメント通り Heroku にデプロイする．
+
+- このリポジトリに push すると自動で Heroku にデプロイされるようになっている
 
 ## Reference
 
@@ -19,5 +21,7 @@ LINE Developer の公式ドキュメント通り Heroku にデプロイする．
 - [LINE Developers](https://developers.line.biz/ja/)
 - [LINE Documentation](https://developers.line.biz/en/docs/)
 - [Messaging API Document](https://developers.line.biz/ja/docs/messaging-api/getting-started/)
+- [GitHub line-bot-sdk-python](https://github.com/line/line-bot-sdk-python)
+- [1 時間で LINE Bot をつくる](https://qiita.com/n0bisuke/items/ceaa09ef8898bee8369d)
 
 ---

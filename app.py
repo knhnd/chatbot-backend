@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import request
 import json
 import os
 from linebot import (LineBotApi, WebhookHandler)
@@ -30,7 +31,7 @@ def test():
 # endpoint from linebot
 @app.route("/callback", methods=['POST'])
 def callback():
-    print("in callback")
+    print()
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
