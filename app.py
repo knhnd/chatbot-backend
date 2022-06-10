@@ -28,7 +28,6 @@ def test():
         return "<h1>It Works!</h1>"
 
 # endpoint from linebot
-# 認証情報の検証
 @app.route("/callback", methods=['POST'])
 def callback():
     print("in callback")
