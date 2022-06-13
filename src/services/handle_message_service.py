@@ -1,4 +1,4 @@
 class handle_message_service : 
-    def generateReplyMessage(receivedMessage) :
+    def generate_reply_message(receivedMessage) :
 
         return receivedMessage + "OK"
