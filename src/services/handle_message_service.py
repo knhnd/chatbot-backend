@@ -10,4 +10,4 @@ word = {
 
 class handle_message_service : 
     def generate_reply_message(receivedMessage) :
-        return word.hello
+        return word['hello']
