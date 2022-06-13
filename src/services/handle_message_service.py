@@ -1,4 +1,4 @@
-dict = {
+word = {
   "test": "正常に可動しています！",
   "sample": "ちゃんと受け取れています！",
   "hello": "Hello, World!",
@@ -10,4 +10,4 @@ dict = {
 
 class handle_message_service : 
     def generate_reply_message(receivedMessage) :
-        return dict.hello
+        return word.hello
