@@ -48,9 +48,8 @@ def callback():
 # handle message from LINE
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    
+    # メッセージ生成用のモジュール呼び出し
     reply = handle_message_service.generate_reply_message(event.message.text)
-
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=reply))
