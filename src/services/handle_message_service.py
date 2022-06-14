@@ -8,5 +8,4 @@ class handle_message_service :
         for key in mydict :
             if (receivedMessage == key) :
                 return mydict[key]
-            else :
-                return mydict['except']
+        return mydict['except']
