@@ -2,7 +2,7 @@ import json
 
 class handle_message_service : 
     def generate_reply_message(receivedMessage) :
-        json_file = open('mydict.json', 'r')
+        json_file = open('./mydict.json', 'r')
         mydict = json.load(json_file)
         print(mydict)
         return receivedMessage
