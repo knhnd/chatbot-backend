@@ -1,9 +1,9 @@
-import pickle
+import json
 
 class handle_message_service : 
     def generate_reply_message(receivedMessage) :
-        with open('mydict.pkl', mode='rb') as f:
-            mydict = pickle.load(f)
+        json_file = open('mydict.json', 'r')
+        mydict = json.load(json_file)
         print(mydict)
         return receivedMessage
 
