@@ -8,11 +8,16 @@ Flask で作成した LINE ChatBot のバックエンド API．LINE Developers �
 - Flask : 1.1.2
 - line-bot-sdk : 2.2.1
 
+## 開発
+
+開発方法についての詳細は [Zenn の記事](https://zenn.dev/kenken82/articles/ca5e36cf4d5ea1)として公開してあります．
+
 ## デプロイ
 
 LINE Developer の公式ドキュメント通り Heroku にデプロイする．
 
 - このリポジトリに push すると自動で Heroku にデプロイされるようになっている
+- URL : https://chatbot-backend-api.herokuapp.com/
 
 ## Reference
 
