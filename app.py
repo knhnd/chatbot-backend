@@ -5,7 +5,7 @@ import os
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import (MessageEvent, TextMessage, TextSendMessage,)
-from src.services.handle_message_service import * 
+from libs.handle_message_service import * 
 
 # generate instance
 app = Flask(__name__)
