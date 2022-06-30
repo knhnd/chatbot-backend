@@ -1,6 +1,6 @@
 import json
 
-class handle_message_service : 
+class HandleMessage : 
     def generate_reply_message(receivedMessage) :
         json_file = open('/app/libs/mydict.json', 'r')
         mydict = json.load(json_file)
