@@ -1,6 +1,6 @@
+import os
 from flask import Flask
 from flask import request
-import os
 # import json
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
@@ -11,25 +11,25 @@ from libs.handle_message import *
 app = Flask(__name__)
 
 # ローカルサーバで動作確認する場合には LINE の Access Token と Channel Secret は config.json に詰めて読み込む
-# json_file = open('../config.json', 'r')
+# json_file = open('./config.json', 'r')
 # json_data = json.load(json_file)
-# access_token = json_data["access_token"]
-# channel_secret = json_data["channel_secret"]
-# line_bot_api = LineBotApi(access_token)
-# handler = WebhookHandler(channel_secret)
+# ACCESS_TOKEN = json_data["access_token"]
+# CHANNEL_SECRET = json_data["channel_secret"]
 
-# get environmental value from heroku
+# サーバの環境変数
 ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 CHANNEL_SECRET = os.environ["CHANNEL_SECRET"]
+
+# アクセストークンの取得
 line_bot_api = LineBotApi(ACCESS_TOKEN)
 handler = WebhookHandler(CHANNEL_SECRET)
 
 # endpoint
 @app.route("/")
 def test():
-        return "<h1>It Works!</h1>"
+        return "<h1>Success, It Works!</h1>"
 
-# endpoint from linebot
+# # endpoint from linebot
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -45,7 +45,7 @@ def callback():
         abort(400)
     return 'OK'
 
-# handle message from LINE
+# # handle message from LINE
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     reply = HandleMessage_service.generate_reply_message(event.message.text)
@@ -54,4 +54,4 @@ def handle_message(event):
         TextSendMessage(text=reply))
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))

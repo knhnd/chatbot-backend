@@ -14,8 +14,6 @@ Flask で作成した LINE ChatBot のバックエンド API．LINE Developers �
 
 ## デプロイ
 
-LINE Developer の公式ドキュメント通り Heroku にデプロイする．
-
 - このリポジトリに push すると自動で Heroku にデプロイされるようになっている
 - URL : https://chatbot-backend-api.herokuapp.com/
 
