@@ -1,6 +1,6 @@
 # Flask でつくる LINE Chatbot
 
-Flask で作成した LINE ChatBot のバックエンド API．LINE Developers のコンソールから作成した Messaging API からこのバックエンド API を叩くことでレスポンスを返す．
+Flask で作成した LINE ChatBot の API．LINE Developers のコンソールから作成した Messaging API からこのバックエンド API を叩くことでレスポンスを返す．
 
 ### 環境情報
 
@@ -10,12 +10,22 @@ Flask で作成した LINE ChatBot のバックエンド API．LINE Developers �
 
 ## 開発
 
-開発方法についての詳細は [Zenn の記事](https://zenn.dev/kenken82/articles/ca5e36cf4d5ea1)として公開してあります．
+- Flask を用いて開発
+  - 開発方法についての詳細は [Zenn の記事](https://zenn.dev/kenken82/articles/ca5e36cf4d5ea1)として公開．
 
 ## デプロイ
 
-- このリポジトリに push すると自動で Heroku にデプロイされるようになっている
-- URL : https://chatbot-backend-api.herokuapp.com/
+- ~~このリポジトリに push すると自動で Heroku にデプロイされるようになっている~~
+- Heroku 有料化に伴い，プロジェクトをコンテナ化し Cloud Run へデプロイ
+  - [Zenn の記事](https://zenn.dev/kenken82/articles/cloudrun-docker-tutorial)として公開
+- URL : https://chatbot-backend-zr3kxadeta-de.a.run.app/
+
+## 実験
+
+### LINE Beacon
+
+- LINE Beacon を使用してメッセージを送信する
+  - 参考 : https://qiita.com/mochan_tk/items/95573e99399d00e62409
 
 ## Reference
 

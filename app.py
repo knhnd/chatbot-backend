@@ -1,11 +1,11 @@
 import os
+# import json
 from flask import Flask
 from flask import request
-# import json
+from libs.handle_message import HandleMessage
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import (MessageEvent, TextMessage, TextSendMessage,)
-from libs.handle_message import * 
 
 # generate instance
 app = Flask(__name__)
@@ -27,7 +27,7 @@ handler = WebhookHandler(CHANNEL_SECRET)
 # endpoint
 @app.route("/")
 def test():
-        return "<h1>Success, It Works!</h1>"
+        return "<h1>It Works!</h1>"
 
 # # endpoint from linebot
 @app.route("/callback", methods=['POST'])
@@ -48,7 +48,7 @@ def callback():
 # # handle message from LINE
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    reply = HandleMessage_service.generate_reply_message(event.message.text)
+    reply = HandleMessage.generate_reply_message(event.message.text)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=reply))
